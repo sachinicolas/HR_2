@@ -3,6 +3,8 @@ package strategies.command;
 import models.*;
 
 public class CdCommandStrategy implements CommandStrategy {
+	private String str = new String("Directory patch changed succesfully.");
+	
 	public String execute(Resource currentDirectory, String[] args) {
 		switch (args[1]) {
 		case "..":
@@ -33,6 +35,6 @@ public class CdCommandStrategy implements CommandStrategy {
 			}
 		}
 
-		return new String("Directory patch changed succesfully.");
+		return str;
 	}
 }

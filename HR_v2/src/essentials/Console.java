@@ -8,6 +8,11 @@ public class Console {
 	private Resource rootDirectory = new Directory();
 	private Resource currentDirectory = new Directory();
 	private CommandContext cmdCtx = new CommandContext();
+	private CommandStrategy cd = new CdCommandStrategy();
+	private CommandStrategy ls = new LsCommandStrategy();
+	private CommandStrategy mkdir = new MkdirCommandStrategy();
+	private CommandStrategy pwd = new PwdCommandStrategy();
+	private CommandStrategy touch = new TouchCommandStrategy();
 
 	public Console() {
 		rootDirectory.setName("home");
@@ -72,31 +77,31 @@ public class Console {
 	}
 
 	private void pwd(String[] args) {
-		cmdCtx.setCommandStrategy(new PwdCommandStrategy());
+		cmdCtx.setCommandStrategy(pwd);
 
 		System.out.println(cmdCtx.execute(currentDirectory, args) + "\n");
 	}
 
 	private void mkdir(String[] args) {
-		cmdCtx.setCommandStrategy(new MkdirCommandStrategy());
+		cmdCtx.setCommandStrategy(mkdir);
 
 		cmdCtx.execute(currentDirectory, args);
 	}
 
 	private void touch(String[] args) {
-		cmdCtx.setCommandStrategy(new TouchCommandStrategy());
+		cmdCtx.setCommandStrategy(touch);
 
 		cmdCtx.execute(currentDirectory, args);
 	}
 
 	private void cd(String[] args) {
-		cmdCtx.setCommandStrategy(new CdCommandStrategy());
+		cmdCtx.setCommandStrategy(cd);
 
 		cmdCtx.execute(currentDirectory, args);
 	}
 
 	private void ls(String[] args) {
-		cmdCtx.setCommandStrategy(new LsCommandStrategy());
+		cmdCtx.setCommandStrategy(ls);
 
 		System.out.println(cmdCtx.execute(currentDirectory, args));
 	}

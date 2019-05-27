@@ -3,6 +3,8 @@ package strategies.command;
 import models.*;
 
 public class TouchCommandStrategy implements CommandStrategy {
+	private String str = new String("New file maked succesfully.");
+	
 	public String execute(Resource currentDirectory, String[] args) {
 		Resource newFile = new File();
 		
@@ -12,6 +14,6 @@ public class TouchCommandStrategy implements CommandStrategy {
 		
 		currentDirectory.getResourcesList().add(newFile);
 		
-		return new String("New file maked succesfully.");
+		return str;
 	}
 }

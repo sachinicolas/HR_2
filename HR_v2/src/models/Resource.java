@@ -5,12 +5,12 @@ import java.util.List;
 
 public abstract class Resource {
 	String name;
-	String patch;
+	String path;
 	Resource container;
 	
 	public Resource(String name, String patch, Resource container) {
 		this.name = name;
-		this.patch = patch;
+		this.path = patch;
 		this.container = container;
 	}
 	
@@ -33,11 +33,11 @@ public abstract class Resource {
 	}
 	
 	public String getPatch() {
-		return patch;
+		return path;
 	}
 
 	public void setPatch(String patch) {
-		this.patch = patch;
+		this.path = patch;
 	}
 	
 	public void setResourcesList(List<Resource> resourcesList) {}

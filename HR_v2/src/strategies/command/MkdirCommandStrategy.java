@@ -4,6 +4,8 @@ import models.Directory;
 import models.Resource;
 
 public class MkdirCommandStrategy implements CommandStrategy {
+	private String str = new String("New directory maked succesfully.");
+	
 	public String execute(Resource currentDirectory, String[] args) {
 		Resource newDir = new Directory();
 		
@@ -13,6 +15,6 @@ public class MkdirCommandStrategy implements CommandStrategy {
 		
 		currentDirectory.getResourcesList().add(newDir);
 		
-		return new String("New directory maked succesfully.");
+		return str;
 	}
 }

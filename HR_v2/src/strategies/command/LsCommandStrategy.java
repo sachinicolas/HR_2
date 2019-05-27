@@ -3,13 +3,13 @@ package strategies.command;
 import models.Resource;
 
 public class LsCommandStrategy implements CommandStrategy {
-	public String execute(Resource currentDirectory, String[] args) {
-		String ls = "";
-		
+	private String str = new String("");
+	
+	public String execute(Resource currentDirectory, String[] args) {		
 		for (Resource r : currentDirectory.getResourcesList()) {
-			ls = ls + r.getName() + "       ";
+			str = str + r.getName() + "       ";
 		}
 		
-		return ls;
+		return str;
 	}
 }
