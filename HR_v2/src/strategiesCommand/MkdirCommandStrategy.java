@@ -21,6 +21,7 @@ public class MkdirCommandStrategy implements CommandStrategy {
 
 	public String execute(Resource currentDirectory, String[] args) {
 		try {
+			Validator.genCheckIfCommandItsOK(args, 2);
 			Validator.mkdirCheckIfNewIsInexistent(currentDirectory, args[1]);
 
 			Resource newDir = new Directory();

@@ -20,6 +20,7 @@ public class TouchCommandStrategy implements CommandStrategy {
 
 	public String execute(Resource currentDirectory, String[] args) {
 		try {
+			Validator.genCheckIfCommandItsOK(args, 2);
 			Validator.touchCheckIfNewIsInexistent(currentDirectory, args[1]);
 
 			Resource newFile = new File();

@@ -5,9 +5,15 @@ import models.File;
 import models.Resource;
 
 public class Validator {
+	public static void genCheckIfCommandItsOK(String[] commandWithArgs, int strCount) throws Exception {
+		if (commandWithArgs.length != strCount) {
+			throw new Exception("Error in the command syntax. Please check that you are writing it OK." + "\n\n");
+		}
+	}
+	
 	public static void cdCheckIfBackIsNotNull(Resource currentDirectory) throws Exception {
 		if (currentDirectory.getContainer() == null) {
-			throw new Exception("Cannot go back. The current location is root." + "\n\n");
+			throw new Exception("");
 		}
 	}
 

@@ -19,6 +19,12 @@ public class CdCommandStrategy implements CommandStrategy {
 	}
 
 	public String execute(Resource currentDirectory, String[] args) {
+		try {
+			Validator.genCheckIfCommandItsOK(args, 2);
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+		
 		switch (args[1]) {
 		case "..":
 			try {
