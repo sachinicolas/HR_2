@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Directory extends Resource {
 	List<Resource> resourcesList = new ArrayList<Resource>();
-	
+
 	public Directory(List<Resource> resourcesList, String name, String patch, Resource container) {
 		super(name, patch, container);
 		this.resourcesList = resourcesList;
 	}
-	
+
 	public Directory() {
 		super();
 	}

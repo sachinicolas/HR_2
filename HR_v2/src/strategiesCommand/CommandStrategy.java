@@ -1,4 +1,4 @@
-package strategies.command;
+package strategiesCommand;
 
 import models.Resource;
 

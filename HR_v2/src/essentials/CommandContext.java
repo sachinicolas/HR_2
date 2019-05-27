@@ -1,7 +1,7 @@
 package essentials;
 
 import models.Resource;
-import strategies.command.CommandStrategy;
+import strategiesCommand.CommandStrategy;
 
 public class CommandContext {
 	private CommandStrategy strategy;

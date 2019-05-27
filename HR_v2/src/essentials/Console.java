@@ -2,17 +2,12 @@ package essentials;
 
 import java.util.Scanner;
 import models.*;
-import strategies.command.*;
+import strategiesCommand.*;
 
 public class Console {
 	private Resource rootDirectory = new Directory();
 	private Resource currentDirectory = new Directory();
 	private CommandContext cmdCtx = new CommandContext();
-	private CommandStrategy cd = new CdCommandStrategy();
-	private CommandStrategy ls = new LsCommandStrategy();
-	private CommandStrategy mkdir = new MkdirCommandStrategy();
-	private CommandStrategy pwd = new PwdCommandStrategy();
-	private CommandStrategy touch = new TouchCommandStrategy();
 
 	public Console() {
 		rootDirectory.setName("home");
@@ -77,32 +72,32 @@ public class Console {
 	}
 
 	private void pwd(String[] args) {
-		cmdCtx.setCommandStrategy(pwd);
+		cmdCtx.setCommandStrategy(PwdCommandStrategy.getInstance());
 
-		System.out.println(cmdCtx.execute(currentDirectory, args) + "\n");
+		System.out.print(cmdCtx.execute(currentDirectory, args));
 	}
 
 	private void mkdir(String[] args) {
-		cmdCtx.setCommandStrategy(mkdir);
+		cmdCtx.setCommandStrategy(MkdirCommandStrategy.getInstance());
 
-		cmdCtx.execute(currentDirectory, args);
+		System.out.print(cmdCtx.execute(currentDirectory, args));
 	}
 
 	private void touch(String[] args) {
-		cmdCtx.setCommandStrategy(touch);
+		cmdCtx.setCommandStrategy(TouchCommandStrategy.getInstance());
 
-		cmdCtx.execute(currentDirectory, args);
+		System.out.print(cmdCtx.execute(currentDirectory, args));
 	}
 
 	private void cd(String[] args) {
-		cmdCtx.setCommandStrategy(cd);
-
-		cmdCtx.execute(currentDirectory, args);
+		cmdCtx.setCommandStrategy(CdCommandStrategy.getInstance());
+		
+		System.out.print(cmdCtx.execute(currentDirectory, args));
 	}
 
 	private void ls(String[] args) {
-		cmdCtx.setCommandStrategy(ls);
+		cmdCtx.setCommandStrategy(LsCommandStrategy.getInstance());
 
-		System.out.println(cmdCtx.execute(currentDirectory, args));
+		System.out.print(cmdCtx.execute(currentDirectory, args));
 	}
 }
