@@ -1,5 +1,7 @@
 package strategiesCommand;
 
+import java.util.List;
+
 import models.Resource;
 import validations.Validator;
 
@@ -20,11 +22,11 @@ public class LsCommandStrategy implements CommandStrategy {
 
 	public String execute(Resource currentDirectory, String[] args) {
 		try {
-			Validator.genCheckIfCommandItsOK(args, 1);
+			Validator.genCheckIfCommandItsOK(args, 1, 1);
 		} catch (Exception e) {
 			return e.getMessage();
 		}
-		
+
 		str = "";
 
 		for (Resource r : currentDirectory.getResourcesList()) {

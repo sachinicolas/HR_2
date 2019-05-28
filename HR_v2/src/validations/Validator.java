@@ -5,8 +5,8 @@ import models.File;
 import models.Resource;
 
 public class Validator {
-	public static void genCheckIfCommandItsOK(String[] commandWithArgs, int strCount) throws Exception {
-		if (commandWithArgs.length != strCount) {
+	public static void genCheckIfCommandItsOK(String[] commandWithArgs, int strCountMin, int strCountMax) throws Exception {
+		if (!(commandWithArgs.length >= strCountMin && commandWithArgs.length <= strCountMax)) {
 			throw new Exception("Error in the command syntax. Please check that you are writing it OK." + "\n\n");
 		}
 	}

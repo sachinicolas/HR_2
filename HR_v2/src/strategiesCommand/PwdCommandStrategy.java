@@ -20,7 +20,7 @@ public class PwdCommandStrategy implements CommandStrategy {
 
 	public String execute(Resource currentDirectory, String[] args) {
 		try {
-			Validator.genCheckIfCommandItsOK(args, 1);
+			Validator.genCheckIfCommandItsOK(args, 1, 1);
 		} catch (Exception e) {
 			return e.getMessage();
 		}
